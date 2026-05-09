@@ -1,0 +1,13 @@
+metrics:
+  - id: MET-AB-R2-CPU-1000
+    ts: "2026-05-01T10:00:00Z"
+    device: r2
+    metric: cpu_utilization_percent
+    value: 28
+    unit: percent
+  - id: MET-AB-R2-LOSS-1000
+    ts: "2026-05-01T10:00:00Z"
+    device: r2
+    metric: packet_loss_percent
+    value: 0.2
+    unit: percent

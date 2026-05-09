@@ -1,0 +1,47 @@
+devices:
+  - id: client_zurich
+    role: client_site
+    site: Zurich
+    vendor: synthetic
+  - id: r1
+    role: edge_router
+    site: Zurich
+    vendor: synthetic
+  - id: r2
+    role: core_router
+    site: Core
+    vendor: synthetic
+  - id: r3
+    role: service_edge
+    site: App-DC
+    vendor: synthetic
+  - id: app_b
+    role: application
+    site: App-DC
+    vendor: synthetic
+links:
+  - src_device: client_zurich
+    src_interface: eth0
+    dst_device: r1
+    dst_interface: eth0
+    weight: 1
+    status: up
+  - src_device: r1
+    src_interface: eth1
+    dst_device: r2
+    dst_interface: eth0
+    weight: 10
+    status: up
+  - src_device: r2
+    src_interface: eth1
+    dst_device: r3
+    dst_interface: eth0
+    weight: 10
+    status: up
+  - src_device: r3
+    src_interface: eth1
+    dst_device: app_b
+    dst_interface: eth0
+    weight: 1
+    status: up
+

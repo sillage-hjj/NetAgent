@@ -1,0 +1,8 @@
+tickets:
+  - id: T-001
+    ts: "2026-05-01T10:05:00Z"
+    text: Zurich users report App-B over HTTPS is reachable but slow and unstable since around 10:00 UTC.
+    src_site: Zurich
+    dst_service: App-B
+    protocol: tcp
+    port: 443

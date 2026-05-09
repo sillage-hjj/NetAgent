@@ -1,0 +1,120 @@
+name: spine_leaf_mini
+description: Mini spine-leaf topology with redundant paths to App-B.
+version: "1.0"
+sites:
+  - id: dc1
+    name: Mini DC
+    region: EMEA
+devices:
+  - id: client_a
+    hostname: client-a
+    role: client
+    site: dc1
+    vendor: synthetic
+    model: host
+    management_ip: null
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+  - id: leaf1
+    hostname: leaf1
+    role: leaf
+    site: dc1
+    vendor: synthetic
+    model: switch
+    management_ip: 192.0.2.21
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 10000}
+      - {id: eth2, name: eth2, speed_mbps: 10000}
+  - id: leaf2
+    hostname: leaf2
+    role: leaf
+    site: dc1
+    vendor: synthetic
+    model: switch
+    management_ip: 192.0.2.22
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 10000}
+      - {id: eth2, name: eth2, speed_mbps: 10000}
+  - id: spine1
+    hostname: spine1
+    role: spine
+    site: dc1
+    vendor: synthetic
+    model: switch
+    management_ip: 192.0.2.23
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 10000}
+      - {id: eth1, name: eth1, speed_mbps: 10000}
+  - id: spine2
+    hostname: spine2
+    role: spine
+    site: dc1
+    vendor: synthetic
+    model: switch
+    management_ip: 192.0.2.24
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 10000}
+      - {id: eth1, name: eth1, speed_mbps: 10000}
+  - id: app_b
+    hostname: app-b
+    role: application
+    site: dc1
+    vendor: synthetic
+    model: service-host
+    management_ip: null
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000, ip: 10.2.0.10/24}
+links:
+  - id: link_client_leaf1
+    endpoint_a: {device: client_a, interface: eth0}
+    endpoint_b: {device: leaf1, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 1
+  - id: link_leaf1_spine1
+    endpoint_a: {device: leaf1, interface: eth1}
+    endpoint_b: {device: spine1, interface: eth0}
+    bandwidth_mbps: 10000
+    latency_ms: 1
+    tags: [fabric]
+  - id: link_leaf1_spine2
+    endpoint_a: {device: leaf1, interface: eth2}
+    endpoint_b: {device: spine2, interface: eth0}
+    bandwidth_mbps: 10000
+    latency_ms: 1
+    tags: [fabric]
+  - id: link_spine1_leaf2
+    endpoint_a: {device: spine1, interface: eth1}
+    endpoint_b: {device: leaf2, interface: eth1}
+    bandwidth_mbps: 10000
+    latency_ms: 1
+    tags: [fabric]
+  - id: link_spine2_leaf2
+    endpoint_a: {device: spine2, interface: eth1}
+    endpoint_b: {device: leaf2, interface: eth2}
+    bandwidth_mbps: 10000
+    latency_ms: 1
+    tags: [fabric]
+  - id: link_leaf2_app_b
+    endpoint_a: {device: leaf2, interface: eth0}
+    endpoint_b: {device: app_b, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 1
+    tags: [service, critical]
+services:
+  - id: app_b
+    name: App-B HTTPS
+    device: app_b
+    ip: 10.2.0.10
+    protocol: tcp
+    port: 443
+    criticality: critical
+probes:
+  - id: probe_client_a_app_b_https
+    name: Client-A to App-B HTTPS
+    source_device: client_a
+    target_service: app_b
+    protocol: tcp
+    port: 443
+

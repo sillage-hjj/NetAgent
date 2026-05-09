@@ -1,0 +1,2 @@
+[console_scripts]
+nfmini = netfabric_mini.cli:app

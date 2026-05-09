@@ -1,0 +1,127 @@
+name: ring_with_backup
+description: Ring topology that can reroute around a single failed ring link.
+version: "1.0"
+sites:
+  - id: zurich
+    name: Zurich Branch
+    region: EMEA
+  - id: core
+    name: Regional Core
+    region: EMEA
+  - id: app_dc
+    name: Application DC
+    region: EMEA
+devices:
+  - id: client_zurich
+    hostname: client-zurich
+    role: client
+    site: zurich
+    vendor: synthetic
+    model: host
+    management_ip: null
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+  - id: r1
+    hostname: r1
+    role: edge_router
+    site: zurich
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.11
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 1000}
+      - {id: eth2, name: eth2, speed_mbps: 1000}
+  - id: r2
+    hostname: r2
+    role: core_router
+    site: core
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.12
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 1000}
+  - id: r3
+    hostname: r3
+    role: core_router
+    site: core
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.13
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 1000}
+  - id: r4
+    hostname: r4
+    role: service_edge
+    site: app_dc
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.14
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000}
+      - {id: eth1, name: eth1, speed_mbps: 1000}
+      - {id: eth2, name: eth2, speed_mbps: 1000}
+  - id: app_b
+    hostname: app-b
+    role: application
+    site: app_dc
+    vendor: synthetic
+    model: service-host
+    management_ip: null
+    interfaces:
+      - {id: eth0, name: eth0, speed_mbps: 1000, ip: 10.2.0.10/24}
+links:
+  - id: link_client_r1
+    endpoint_a: {device: client_zurich, interface: eth0}
+    endpoint_b: {device: r1, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 1
+  - id: link_r1_r2
+    endpoint_a: {device: r1, interface: eth1}
+    endpoint_b: {device: r2, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 5
+    tags: [ring, critical]
+  - id: link_r2_r3
+    endpoint_a: {device: r2, interface: eth1}
+    endpoint_b: {device: r3, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 5
+    tags: [ring]
+  - id: link_r3_r4
+    endpoint_a: {device: r3, interface: eth1}
+    endpoint_b: {device: r4, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 5
+    tags: [ring, critical]
+  - id: link_r4_r1
+    endpoint_a: {device: r4, interface: eth1}
+    endpoint_b: {device: r1, interface: eth2}
+    bandwidth_mbps: 1000
+    latency_ms: 20
+    weight: 20
+    tags: [ring, backup]
+  - id: link_r4_app_b
+    endpoint_a: {device: r4, interface: eth2}
+    endpoint_b: {device: app_b, interface: eth0}
+    bandwidth_mbps: 1000
+    latency_ms: 1
+    tags: [service, critical]
+services:
+  - id: app_b
+    name: App-B HTTPS
+    device: app_b
+    ip: 10.2.0.10
+    protocol: tcp
+    port: 443
+    criticality: critical
+probes:
+  - id: probe_zurich_app_b_https
+    name: Zurich to App-B HTTPS
+    source_device: client_zurich
+    target_service: app_b
+    protocol: tcp
+    port: 443
+

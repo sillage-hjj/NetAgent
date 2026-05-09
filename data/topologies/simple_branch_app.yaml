@@ -1,0 +1,144 @@
+name: simple_branch_app
+description: Small branch-to-app topology with a backup branch-to-service edge link.
+version: "1.0"
+sites:
+  - id: zurich
+    name: Zurich Branch
+    region: EMEA
+  - id: core
+    name: Core
+    region: EMEA
+  - id: app_dc
+    name: Application DC
+    region: EMEA
+devices:
+  - id: client_zurich
+    hostname: client-zurich
+    role: client
+    site: zurich
+    vendor: synthetic
+    model: host
+    management_ip: null
+    interfaces:
+      - id: eth0
+        name: eth0
+        speed_mbps: 1000
+        ip: 10.1.0.25/24
+        description: Client uplink
+  - id: r1
+    hostname: r1
+    role: edge_router
+    site: zurich
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.1
+    interfaces:
+      - id: eth0
+        name: eth0
+        speed_mbps: 1000
+        description: Client access
+      - id: eth1
+        name: eth1
+        speed_mbps: 1000
+        description: Primary core uplink
+      - id: eth2
+        name: eth2
+        speed_mbps: 500
+        description: Backup service-edge uplink
+  - id: r2
+    hostname: r2
+    role: core_router
+    site: core
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.2
+    interfaces:
+      - id: eth0
+        name: eth0
+        speed_mbps: 1000
+      - id: eth1
+        name: eth1
+        speed_mbps: 1000
+  - id: r3
+    hostname: r3
+    role: service_edge
+    site: app_dc
+    vendor: synthetic
+    model: router
+    management_ip: 192.0.2.3
+    interfaces:
+      - id: eth0
+        name: eth0
+        speed_mbps: 1000
+      - id: eth1
+        name: eth1
+        speed_mbps: 1000
+      - id: eth2
+        name: eth2
+        speed_mbps: 500
+  - id: app_b
+    hostname: app-b
+    role: application
+    site: app_dc
+    vendor: synthetic
+    model: service-host
+    management_ip: null
+    interfaces:
+      - id: eth0
+        name: eth0
+        speed_mbps: 1000
+        ip: 10.2.0.10/24
+links:
+  - id: link_client_r1
+    endpoint_a: {device: client_zurich, interface: eth0}
+    endpoint_b: {device: r1, interface: eth0}
+    weight: 1
+    bandwidth_mbps: 1000
+    latency_ms: 1.0
+    tags: [access]
+  - id: link_r1_r2
+    endpoint_a: {device: r1, interface: eth1}
+    endpoint_b: {device: r2, interface: eth0}
+    weight: 10
+    bandwidth_mbps: 1000
+    latency_ms: 8.0
+    tags: [primary, critical]
+  - id: link_r2_r3
+    endpoint_a: {device: r2, interface: eth1}
+    endpoint_b: {device: r3, interface: eth0}
+    weight: 10
+    bandwidth_mbps: 1000
+    latency_ms: 8.0
+    tags: [primary, critical]
+  - id: link_r1_r3_backup
+    endpoint_a: {device: r1, interface: eth2}
+    endpoint_b: {device: r3, interface: eth2}
+    weight: 50
+    bandwidth_mbps: 500
+    latency_ms: 25.0
+    tags: [backup]
+  - id: link_r3_app_b
+    endpoint_a: {device: r3, interface: eth1}
+    endpoint_b: {device: app_b, interface: eth0}
+    weight: 1
+    bandwidth_mbps: 1000
+    latency_ms: 1.0
+    tags: [service, critical]
+services:
+  - id: app_b
+    name: App-B HTTPS
+    device: app_b
+    ip: 10.2.0.10
+    protocol: tcp
+    port: 443
+    criticality: critical
+probes:
+  - id: probe_zurich_app_b_https
+    name: Zurich to App-B HTTPS
+    source_device: client_zurich
+    target_service: app_b
+    protocol: tcp
+    port: 443
+    interval_ticks: 1
+    enabled: true
+
