@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, list_topologies, load_topology
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, list_topologies, load_topology
 
 
 def test_valid_topologies_load_successfully() -> None:

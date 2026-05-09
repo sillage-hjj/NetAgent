@@ -1,11 +1,11 @@
 import inspect
 import json
 
-from netfabric_mini import tools
-from netfabric_mini.db import init_db
-from netfabric_mini.log_parser import parse_and_store_all
-from netfabric_mini.seed_loader import load_case
-from netfabric_mini.tools import (
+from netagent_lab import tools
+from netagent_lab.db import init_db
+from netagent_lab.log_parser import parse_and_store_all
+from netagent_lab.seed_loader import load_case
+from netagent_lab.tools import (
     check_acl_tool,
     get_raw_log,
     get_recent_events,

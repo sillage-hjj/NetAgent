@@ -1,6 +1,6 @@
 import pytest
 
-from netfabric_mini.guardrails import classify_action
+from netagent_lab.guardrails import classify_action
 
 
 @pytest.mark.parametrize(

@@ -1,13 +1,13 @@
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.knowledge.store import KnowledgeBase
-from netfabric_mini.monitoring.monitor import run_monitor_once
-from netfabric_mini.reasoning.alerts import evaluate_alerts
-from netfabric_mini.reasoning.diff import diff_latest_snapshots
-from netfabric_mini.reasoning.health import evaluate_link_health, evaluate_path_health
-from netfabric_mini.reasoning.pathing import infer_path
-from netfabric_mini.reasoning.reachability import check_service_reachability
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.knowledge.store import KnowledgeBase
+from netagent_lab.monitoring.monitor import run_monitor_once
+from netagent_lab.reasoning.alerts import evaluate_alerts
+from netagent_lab.reasoning.diff import diff_latest_snapshots
+from netagent_lab.reasoning.health import evaluate_link_health, evaluate_path_health
+from netagent_lab.reasoning.pathing import infer_path
+from netagent_lab.reasoning.reachability import check_service_reachability
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_reasoning_path_and_backup_path() -> None:

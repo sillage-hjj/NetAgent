@@ -1,6 +1,6 @@
-from netfabric_mini.db import get_snapshot, init_sim_db, initialize_runtime_state, list_snapshots, list_telemetry_samples
-from netfabric_mini.monitoring.monitor import run_monitor_once
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import get_snapshot, init_sim_db, initialize_runtime_state, list_snapshots, list_telemetry_samples
+from netagent_lab.monitoring.monitor import run_monitor_once
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_monitor_once_creates_telemetry_and_snapshot_with_link_metadata() -> None:

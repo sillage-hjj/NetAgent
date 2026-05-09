@@ -1,8 +1,8 @@
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.pathing import check_service_reachability, infer_simulated_path
-from netfabric_mini.sim.state import SimulationStateStore
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.pathing import check_service_reachability, infer_simulated_path
+from netagent_lab.sim.state import SimulationStateStore
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_path_exists_initially() -> None:

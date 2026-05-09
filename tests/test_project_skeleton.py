@@ -1,7 +1,7 @@
 from typer.testing import CliRunner
 
-from netfabric_mini import __version__
-from netfabric_mini.cli import app
+from netagent_lab import __version__
+from netagent_lab.cli import app
 
 
 def test_package_has_version() -> None:

@@ -2,12 +2,12 @@ import json
 
 import pytest
 
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.ingestion.collector_contracts import CollectorResult
-from netfabric_mini.ingestion.simulated_collectors import collect_sim_all, collect_sim_link_states
-from netfabric_mini.normalization.normalizers import normalize_all, normalize_link_states
-from netfabric_mini.normalization.schemas import EvidenceRef
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.ingestion.collector_contracts import CollectorResult
+from netagent_lab.ingestion.simulated_collectors import collect_sim_all, collect_sim_link_states
+from netagent_lab.normalization.normalizers import normalize_all, normalize_link_states
+from netagent_lab.normalization.schemas import EvidenceRef
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_collector_outputs_normalize_successfully() -> None:

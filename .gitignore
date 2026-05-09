@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+env/
+.env
+.env.*
+*.db
+*.sqlite
+*.sqlite3
+*.log
+build/
+dist/
+*.egg-info/
+.streamlit/secrets.toml

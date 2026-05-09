@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from netfabric_mini.agent.run_store import complete_run, create_run, get_run, list_runs, list_tool_calls, record_tool_call
-from netfabric_mini.agent.session_store import append_message, create_session, list_messages
-from netfabric_mini.db import init_sim_db
-from netfabric_mini.llm.client_protocol import LLMToolCall
-from netfabric_mini.agent.tool_contracts import make_tool_result
+from netagent_lab.agent.run_store import complete_run, create_run, get_run, list_runs, list_tool_calls, record_tool_call
+from netagent_lab.agent.session_store import append_message, create_session, list_messages
+from netagent_lab.db import init_sim_db
+from netagent_lab.llm.client_protocol import LLMToolCall
+from netagent_lab.agent.tool_contracts import make_tool_result
 
 
 def test_sessions_runs_and_tool_calls_persist() -> None:

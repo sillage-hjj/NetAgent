@@ -1,16 +1,16 @@
 import json
 
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.monitoring.monitor import run_monitor_once
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.exporters import (
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.monitoring.monitor import run_monitor_once
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.exporters import (
     export_current_state_json,
     export_events_jsonl,
     export_latest_snapshot_json,
     export_llm_ready_context,
     export_telemetry_jsonl,
 )
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_exports_are_json_serializable() -> None:

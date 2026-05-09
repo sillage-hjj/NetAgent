@@ -1,9 +1,9 @@
-from netfabric_mini.db import init_db
-from netfabric_mini.log_parser import parse_and_store_all
-from netfabric_mini.metrics import find_anomalous_metrics_on_path, query_metric_trend
-from netfabric_mini.seed_loader import load_case
-from netfabric_mini.tools import find_relevant_events_on_path
-from netfabric_mini.topology_model import infer_path
+from netagent_lab.db import init_db
+from netagent_lab.log_parser import parse_and_store_all
+from netagent_lab.metrics import find_anomalous_metrics_on_path, query_metric_trend
+from netagent_lab.seed_loader import load_case
+from netagent_lab.tools import find_relevant_events_on_path
+from netagent_lab.topology_model import infer_path
 
 
 def test_performance_case_finds_metric_anomaly_on_path() -> None:

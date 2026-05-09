@@ -1,5 +1,5 @@
-from netfabric_mini.agent.prompts import build_system_prompt
-from netfabric_mini.llm.config import LLMProviderConfig
+from netagent_lab.agent.prompts import build_system_prompt
+from netagent_lab.llm.config import LLMProviderConfig
 
 
 def test_system_prompt_contains_safety_requirements() -> None:

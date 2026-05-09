@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from netfabric_mini.agent.schemas import AgentReport
-from netfabric_mini.evals.evidence_relevance import evaluate_evidence_relevance
-from netfabric_mini.evals.expected_evidence import get_expected_evidence_spec
-from netfabric_mini.evals.runner import run_all_agent_evals
-from netfabric_mini.evals.scenarios import prepare_agent_scenario_db
+from netagent_lab.agent.schemas import AgentReport
+from netagent_lab.evals.evidence_relevance import evaluate_evidence_relevance
+from netagent_lab.evals.expected_evidence import get_expected_evidence_spec
+from netagent_lab.evals.runner import run_all_agent_evals
+from netagent_lab.evals.scenarios import prepare_agent_scenario_db
 
 
 def _report_with_evidence(evidence: list[dict]) -> AgentReport:

@@ -1,11 +1,11 @@
 import json
 
-from netfabric_mini.db import get_current_tick, init_sim_db, initialize_runtime_state
-from netfabric_mini.ingestion.simulated_collectors import (
+from netagent_lab.db import get_current_tick, init_sim_db, initialize_runtime_state
+from netagent_lab.ingestion.simulated_collectors import (
     collect_sim_all,
     collect_sim_link_states,
 )
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_sim_collectors_return_json_serializable_collector_results() -> None:

@@ -3,13 +3,13 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "netfabric-mini"
+name = "netagent-lab"
 version = "0.1.0"
-description = "Offline, read-only network incident investigation MVP with evidence-grounded deterministic tools."
+description = "Independent network observability and agentic incident investigation research prototype."
 readme = "README.md"
 requires-python = ">=3.11"
 authors = [
-  { name = "NetFabric Mini Contributors" }
+  { name = "NetAgent Contributors" }
 ]
 dependencies = [
   "pydantic>=2,<3",
@@ -31,7 +31,8 @@ ui = [
 ]
 
 [project.scripts]
-nfmini = "netfabric_mini.cli:app"
+netagent = "netagent_lab.cli:app"
+nfmini = "netagent_lab.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["src"]

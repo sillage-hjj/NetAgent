@@ -1,8 +1,8 @@
-from netfabric_mini.db import get_snapshot, init_sim_db, initialize_runtime_state
-from netfabric_mini.monitoring.diff import diff_latest_snapshots
-from netfabric_mini.monitoring.monitor import run_monitor_once
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import get_snapshot, init_sim_db, initialize_runtime_state
+from netagent_lab.monitoring.diff import diff_latest_snapshots
+from netagent_lab.monitoring.monitor import run_monitor_once
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_link_down_diff_shows_changed_link() -> None:

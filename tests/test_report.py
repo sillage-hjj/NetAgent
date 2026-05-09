@@ -1,8 +1,8 @@
-from netfabric_mini.db import init_db
-from netfabric_mini.investigator import investigate_ticket
-from netfabric_mini.log_parser import parse_and_store_all
-from netfabric_mini.report import render_markdown_report
-from netfabric_mini.seed_loader import load_case
+from netagent_lab.db import init_db
+from netagent_lab.investigator import investigate_ticket
+from netagent_lab.log_parser import parse_and_store_all
+from netagent_lab.report import render_markdown_report
+from netagent_lab.seed_loader import load_case
 
 
 def test_markdown_report_contains_root_cause_evidence_and_tool_trace() -> None:

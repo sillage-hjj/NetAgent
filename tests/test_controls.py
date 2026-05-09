@@ -1,11 +1,11 @@
-from netfabric_mini.controls.data_budget import apply_context_budget
-from netfabric_mini.controls.evidence import collect_evidence_refs, validate_evidence_refs
-from netfabric_mini.controls.guardrails import (
+from netagent_lab.controls.data_budget import apply_context_budget
+from netagent_lab.controls.evidence import collect_evidence_refs, validate_evidence_refs
+from netagent_lab.controls.guardrails import (
     classify_sim_action,
     enforce_no_external_network_access_config,
     validate_collector_is_read_only,
 )
-from netfabric_mini.controls.redaction import redact_sensitive_fields
+from netagent_lab.controls.redaction import redact_sensitive_fields
 
 
 def test_data_budget_truncates_events_telemetry_alerts_and_links() -> None:

@@ -1,6 +1,6 @@
 import pytest
 
-from netfabric_mini.agent.schemas import validate_agent_report
+from netagent_lab.agent.schemas import validate_agent_report
 
 
 def test_valid_report_schema_passes() -> None:

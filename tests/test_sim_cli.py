@@ -3,7 +3,7 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from netfabric_mini.cli import app
+from netagent_lab.cli import app
 
 
 def test_sim_list_topologies() -> None:

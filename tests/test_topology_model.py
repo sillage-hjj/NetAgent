@@ -1,8 +1,8 @@
 import pytest
 
-from netfabric_mini.db import init_db
-from netfabric_mini.seed_loader import load_case
-from netfabric_mini.topology_model import build_graph, infer_path
+from netagent_lab.db import init_db
+from netagent_lab.seed_loader import load_case
+from netagent_lab.topology_model import build_graph, infer_path
 
 
 @pytest.mark.parametrize(

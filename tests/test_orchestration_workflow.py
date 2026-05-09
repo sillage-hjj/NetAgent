@@ -1,12 +1,12 @@
 import inspect
 import json
 
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.knowledge.store import KnowledgeBase
-from netfabric_mini.orchestration.investigation_context import build_investigation_context
-from netfabric_mini.orchestration.monitoring_workflow import run_monitoring_cycle
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.knowledge.store import KnowledgeBase
+from netagent_lab.orchestration.investigation_context import build_investigation_context
+from netagent_lab.orchestration.monitoring_workflow import run_monitoring_cycle
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_monitoring_workflow_runs_end_to_end_and_persists_normalized_state() -> None:
@@ -24,7 +24,7 @@ def test_monitoring_workflow_runs_end_to_end_and_persists_normalized_state() -> 
 
 
 def test_monitoring_workflow_has_no_llm_or_external_api_imports() -> None:
-    import netfabric_mini.orchestration.monitoring_workflow as workflow
+    import netagent_lab.orchestration.monitoring_workflow as workflow
 
     source = inspect.getsource(workflow).lower()
 

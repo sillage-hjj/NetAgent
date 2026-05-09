@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from netfabric_mini.agent.tool_registry import build_default_tool_registry
-from netfabric_mini.db import init_sim_db
-from netfabric_mini.llm.config import LLMProviderConfig
+from netagent_lab.agent.tool_registry import build_default_tool_registry
+from netagent_lab.db import init_sim_db
+from netagent_lab.llm.config import LLMProviderConfig
 
 
 def test_registry_includes_read_only_tools_and_unique_names() -> None:

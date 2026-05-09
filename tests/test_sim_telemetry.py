@@ -1,15 +1,15 @@
 import json
 
-from netfabric_mini.db import (
+from netagent_lab.db import (
     init_sim_db,
     initialize_runtime_state,
     insert_telemetry_sample,
     list_telemetry_samples,
 )
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.state import SimulationStateStore
-from netfabric_mini.sim.telemetry import generate_all_telemetry
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.state import SimulationStateStore
+from netagent_lab.sim.telemetry import generate_all_telemetry
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_telemetry_samples_cover_all_domains_and_are_json_serializable() -> None:

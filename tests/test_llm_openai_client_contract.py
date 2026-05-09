@@ -3,9 +3,9 @@ from typing import cast
 
 import pytest
 
-from netfabric_mini.llm.client_protocol import LLMClientProtocol, LLMMessage, LLMToolSpec
-from netfabric_mini.llm.config import LLMProviderConfig
-from netfabric_mini.llm.openai_client import OpenAIResponsesClient
+from netagent_lab.llm.client_protocol import LLMClientProtocol, LLMMessage, LLMToolSpec
+from netagent_lab.llm.config import LLMProviderConfig
+from netagent_lab.llm.openai_client import OpenAIResponsesClient
 
 
 class FakeResponses:

@@ -1,6 +1,6 @@
-from netfabric_mini.acl_checker import check_acl
-from netfabric_mini.db import init_db
-from netfabric_mini.seed_loader import load_case
+from netagent_lab.acl_checker import check_acl
+from netagent_lab.db import init_db
+from netagent_lab.seed_loader import load_case
 
 
 PATH = ["client_zurich", "r1", "r2", "r3", "app_b"]

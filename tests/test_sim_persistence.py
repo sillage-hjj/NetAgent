@@ -1,4 +1,4 @@
-from netfabric_mini.db import (
+from netagent_lab.db import (
     get_current_tick,
     get_snapshot,
     init_sim_db,
@@ -11,8 +11,8 @@ from netfabric_mini.db import (
     load_topology_from_db,
     set_current_tick,
 )
-from netfabric_mini.sim.schemas import MonitoringSnapshot, SimulationEvent
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.sim.schemas import MonitoringSnapshot, SimulationEvent
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_simulation_db_initializes_and_reloads_topology() -> None:

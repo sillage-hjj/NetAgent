@@ -1,8 +1,8 @@
 import json
 from typing import cast
 
-from netfabric_mini.llm.client_protocol import LLMClientProtocol, LLMMessage, LLMResponse, LLMToolCall
-from netfabric_mini.llm.mock_client import MockLLMClient
+from netagent_lab.llm.client_protocol import LLMClientProtocol, LLMMessage, LLMResponse, LLMToolCall
+from netagent_lab.llm.mock_client import MockLLMClient
 
 
 def test_mock_client_implements_protocol_and_returns_scripted_calls() -> None:

@@ -1,13 +1,13 @@
 import json
 
-from netfabric_mini.db import get_current_tick, init_sim_db, initialize_runtime_state
-from netfabric_mini.monitoring.collectors import (
+from netagent_lab.db import get_current_tick, init_sim_db, initialize_runtime_state
+from netagent_lab.monitoring.collectors import (
     collect_link_states,
     collect_probe_results,
     collect_reachability_matrix,
 )
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_collectors_are_json_serializable_and_read_only() -> None:

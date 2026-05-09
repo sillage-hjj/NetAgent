@@ -1,7 +1,7 @@
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.state import SimulationStateStore
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.state import SimulationStateStore
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_initial_state_matches_topology() -> None:

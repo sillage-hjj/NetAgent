@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-from netfabric_mini.schemas import (
+from netagent_lab.schemas import (
     AclRulesFile,
     MetricsFile,
     TicketsFile,

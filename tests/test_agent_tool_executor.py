@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from netfabric_mini.agent.tool_executor import ToolExecutor
-from netfabric_mini.agent.approvals import approve_request, create_approval_request
-from netfabric_mini.agent.tool_registry import build_default_tool_registry
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.llm.client_protocol import LLMToolCall
-from netfabric_mini.llm.config import LLMProviderConfig
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.agent.tool_executor import ToolExecutor
+from netagent_lab.agent.approvals import approve_request, create_approval_request
+from netagent_lab.agent.tool_registry import build_default_tool_registry
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.llm.client_protocol import LLMToolCall
+from netagent_lab.llm.config import LLMProviderConfig
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def _conn():

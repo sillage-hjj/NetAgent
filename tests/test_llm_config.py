@@ -1,6 +1,6 @@
 import pytest
 
-from netfabric_mini.llm.config import load_llm_config, redacted_diagnostics, resolve_provider
+from netagent_lab.llm.config import load_llm_config, redacted_diagnostics, resolve_provider
 
 
 def test_default_config_uses_mock(monkeypatch) -> None:

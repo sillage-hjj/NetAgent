@@ -4,10 +4,10 @@ import os
 
 import pytest
 
-from netfabric_mini.agent.agent_loop import NetworkAgent
-from netfabric_mini.agent.tool_registry import build_default_tool_registry
-from netfabric_mini.evals.scenarios import prepare_agent_scenario_db
-from netfabric_mini.llm.config import load_llm_config, resolve_provider
+from netagent_lab.agent.agent_loop import NetworkAgent
+from netagent_lab.agent.tool_registry import build_default_tool_registry
+from netagent_lab.evals.scenarios import prepare_agent_scenario_db
+from netagent_lab.llm.config import load_llm_config, resolve_provider
 
 
 @pytest.mark.live_openai

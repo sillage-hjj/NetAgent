@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from netfabric_mini.agent.agent_loop import NetworkAgent
-from netfabric_mini.agent.tool_registry import build_default_tool_registry
-from netfabric_mini.evals.scenarios import prepare_agent_scenario_db
-from netfabric_mini.llm.config import LLMProviderConfig
-from netfabric_mini.llm.mock_client import MockLLMClient
+from netagent_lab.agent.agent_loop import NetworkAgent
+from netagent_lab.agent.tool_registry import build_default_tool_registry
+from netagent_lab.evals.scenarios import prepare_agent_scenario_db
+from netagent_lab.llm.config import LLMProviderConfig
+from netagent_lab.llm.mock_client import MockLLMClient
 
 
 def _run(scenario: str):

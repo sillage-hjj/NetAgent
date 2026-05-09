@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from netfabric_mini.db import count_rows, init_db, query_all
-from netfabric_mini.seed_loader import load_case
+from netagent_lab.db import count_rows, init_db, query_all
+from netagent_lab.seed_loader import load_case
 
 
 EXPECTED_COUNTS = {

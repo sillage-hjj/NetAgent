@@ -1,9 +1,9 @@
 import pytest
 
-from netfabric_mini.db import get_current_tick, init_sim_db, initialize_runtime_state, list_sim_events
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.state import SimulationStateStore
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import get_current_tick, init_sim_db, initialize_runtime_state, list_sim_events
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.state import SimulationStateStore
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_link_events_mutate_state_and_history() -> None:

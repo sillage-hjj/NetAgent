@@ -4,7 +4,7 @@ import json
 
 from typer.testing import CliRunner
 
-from netfabric_mini.cli import app
+from netagent_lab.cli import app
 
 
 runner = CliRunner()

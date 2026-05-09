@@ -1,6 +1,6 @@
-from netfabric_mini.db import count_rows, init_db, query_all
-from netfabric_mini.log_parser import parse_and_store_all, parse_log_line
-from netfabric_mini.seed_loader import load_case
+from netagent_lab.db import count_rows, init_db, query_all
+from netagent_lab.log_parser import parse_and_store_all, parse_log_line
+from netagent_lab.seed_loader import load_case
 
 
 def test_parse_link_state_change() -> None:

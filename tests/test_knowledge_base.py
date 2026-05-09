@@ -1,11 +1,11 @@
-from netfabric_mini.db import init_sim_db, initialize_runtime_state
-from netfabric_mini.ingestion.simulated_collectors import collect_sim_all
-from netfabric_mini.knowledge.store import KnowledgeBase
-from netfabric_mini.normalization.normalizers import normalize_all
-from netfabric_mini.normalization.schemas import EvidenceRef
-from netfabric_mini.monitoring.monitor import run_monitor_once
-from netfabric_mini.sim.engine import SimulationEngine
-from netfabric_mini.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
+from netagent_lab.db import init_sim_db, initialize_runtime_state
+from netagent_lab.ingestion.simulated_collectors import collect_sim_all
+from netagent_lab.knowledge.store import KnowledgeBase
+from netagent_lab.normalization.normalizers import normalize_all
+from netagent_lab.normalization.schemas import EvidenceRef
+from netagent_lab.monitoring.monitor import run_monitor_once
+from netagent_lab.sim.engine import SimulationEngine
+from netagent_lab.sim.topology_loader import DEFAULT_TOPOLOGIES_DIR, load_topology
 
 
 def test_knowledge_base_loads_topology_and_current_link_state() -> None:
